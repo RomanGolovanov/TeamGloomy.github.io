@@ -33,14 +33,15 @@ Add the following lines to the board.txt file
 
 ```
 //Fysetc MINI 12864
-lcd.encoderPinA=E.7
-lcd.encoderPinB=B.2
-lcd.encoderPinSw=B.0
-lcd.lcdCSPin=A.5
-lcd.lcdDCPin=E.9
-lcd.spiChannel=3
-SPI3.pins={ B.1, A.6, A.7 } //Set to GPIO pins to use as SCK, MISO, MOSI
-//lcd.lcdBeepPin=NoPin
+lcd.encoderPinA=LCDENCA;  // B.2
+lcd.encoderPinB=LCDENCB;  // E.7
+lcd.encoderPinSw=LCDBTN;  // B.0
+lcd.lcdCSPin=LCDEN;       // E.9
+lcd.lcdDCPin=LCDCS;       // B.1
+lcd.spiChannel=4;
+SPI4.pins={ A.5, A.6, A.7 };
+lcd.lcdBeepPin=LCDBEEP;   // C.5
+led.neopixelPin=E.11;     // E.11
 ```
 
 ## Config.g
@@ -51,7 +52,12 @@ M950 P1 C"E.10"
 M42 P1 S0
 G4 P500
 M42 P1 S1
+
 M918 P2 C30 F1000000 E4
+M150 X1 Q1000000
+M150 R255 U0 B0 P20 S1 F1
+M150 R255 U0 B0 P20 S1 F1
+M150 R255 U0 B0 P255 S1 F0
 ```
 
 </div>
